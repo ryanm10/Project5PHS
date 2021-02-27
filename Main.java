@@ -1,19 +1,22 @@
 import java.util.Scanner; //Including scanner
 class Main {
   public static void main(String[] args) {
-{
-  Scanner scan = new Scanner(System.in); //Scanner statement
-  System.out.println("Are you a student or a teacher?");
-  String userType = scan.next(); 
-  System.out.println("You are a " + userType + " right?");
-  String userConfirm = scan.next();
-  System.out.println("Good! Welcome to the Q/A!");
+    int[] grades = {22,39,54,9,42,29,51,93,37,91,27,48,83,39,69};
 
-  //Above is a little QA, so that we can just get some information, and I will be adding a couple of more questions, like how many people are in your school or what, and how many classrooms/teachers are there. 
+    int bestGrade = highestGrade(0, grades[0], grades);
 
-  //Method 1 for the recursive
-}
+    System.out.println("Highest grade is " + bestGrade);
+  }
 
-    
+  static int highestGrade(int index, int highestGrade, int[] grades) {
+    if(grades.length-1 == index) {
+      return highestGrade;
+    } else {
+      if(grades[index] > highestGrade) {
+        highestGrade = grades[index];
+      }
+      return highestGrade(index + 1, highestGrade, grades);
     }
   }
+
+}
